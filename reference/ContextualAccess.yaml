@@ -278,10 +278,45 @@ components:
                     $ref: '#/components/schemas/RiskMatrix'
               devicePlatforms:
                 type: object
+                properties:
+                  isConfigured:
+                    type: boolean
+                  inclusions:
+                    type: boolean
+                  allDevices:
+                    type: boolean
+                  selectedDevicePlatforms:
+                    type: array
+                    items:
+                      type: string
               locations:
                 type: object
+                properties:
+                  isConfigured:
+                    type: boolean
+                  inclusions:
+                    type: boolean
+                  anyLocation:
+                    type: boolean
+                  selectedLocations:
+                    type: array
+                    items:
+                      type: string
               clientApps:
                 type: object
+                properties:
+                  isConfigured:
+                    type: boolean
+                  allowMobileApps:
+                    type: boolean
+                  allowBrowserApps:
+                    type: boolean
+                  allowDesktopApps:
+                    type: boolean
+                  allowServerApps:
+                    type: boolean
+                  otherClients:
+                    type: boolean
               deviceState:
                 type: object
     RiskMatrix:
