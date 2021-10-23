@@ -253,7 +253,7 @@ components:
                   type: string
               inclusion:
                 type: boolean
-          cloudAppActions:
+          cloudApps:
             type: object
             properties:
               none:
@@ -266,6 +266,19 @@ components:
                   type: string
               inclusion:
                 type: boolean
+          conditions:
+            type: object
+            properties:
+              signInRisk:
+                type: object
+              devicePlatforms:
+                type: object
+              locations:
+                type: object
+              clientApps:
+                type: object
+              deviceState:
+                type: object
   securitySchemes:
     API Key - 1:
       name: API Key
