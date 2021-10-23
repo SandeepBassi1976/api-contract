@@ -328,6 +328,13 @@ components:
                     type: boolean
                   adJoined:
                     type: boolean
+          accessControls:
+            type: object
+            properties:
+              isAllowed:
+                type: boolean
+              domainName:
+                type: string
     RiskMatrix:
       title: RiskMatrix
       type: object
