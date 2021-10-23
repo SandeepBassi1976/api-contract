@@ -253,6 +253,19 @@ components:
                   type: string
               inclusion:
                 type: boolean
+          cloudAppActions:
+            type: object
+            properties:
+              none:
+                type: boolean
+              allApps:
+                type: boolean
+              selectedApps:
+                type: array
+                items:
+                  type: string
+              inclusion:
+                type: boolean
   securitySchemes:
     API Key - 1:
       name: API Key
