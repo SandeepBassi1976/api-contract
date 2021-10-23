@@ -145,6 +145,46 @@ paths:
                   dateOfBirth: '1996-08-24'
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
+  /Policy:
+    get:
+      summary: 'Get policy by {policyId}, {clientId}'
+      tags: []
+      responses: {}
+      operationId: get-Policy
+      description: GET policy retrieves conditional access policy on the basis of a policyId and the current logged in client
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+        - schema:
+            type: string
+          in: query
+          name: policyId
+        - schema:
+            type: string
+          in: query
+          name: clientId
+    post:
+      summary: 'Create new conditional access policy {clientId}'
+      tags: []
+      responses: {}
+      operationId: post-Policy
+    put:
+      summary: 'Update an existing conditional access policy {policyId}, {clientId}'
+      tags: []
+      responses: {}
+      operationId: put-Policy
+    head:
+      summary: Head API is required because we have a GET request on this resource
+      tags: []
+      responses: {}
+      operationId: head-Policy
+    delete:
+      summary: 'Remove an existing conditional access policy {policyId}, {clientId}'
+      tags: []
+      responses: {}
+      operationId: delete-Policy
 components:
   schemas:
     User:
@@ -187,6 +227,32 @@ components:
         - lastName
         - email
         - emailVerified
+    PolicyModel:
+      title: PolicyModel
+      description: FrontLine model that describes the policy in our system
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          enabled:
+            type: boolean
+          activate:
+            type: boolean
+          userGroups:
+            type: object
+            properties:
+              allUsers:
+                type: boolean
+              noUserSelected:
+                type: boolean
+              selectedUsers:
+                type: array
+                items:
+                  type: string
+              inclusion:
+                type: boolean
   securitySchemes:
     API Key - 1:
       name: API Key
