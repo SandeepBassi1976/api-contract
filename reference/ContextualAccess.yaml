@@ -149,7 +149,85 @@ paths:
     get:
       summary: 'Get policy by {policyId}, {clientId}'
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyModel'
+              examples:
+                example-1:
+                  value:
+                    - name: string
+                      enabled: true
+                      activate: true
+                      userGroups:
+                        allUsers: true
+                        noUserSelected: true
+                        selectedUsers:
+                          - string
+                        inclusion: true
+                      cloudApps:
+                        none: true
+                        allApps: true
+                        selectedApps:
+                          - string
+                        inclusion: true
+                      conditions:
+                        signInRisk:
+                          isConfigured: true
+                          risk:
+                            high: true
+                            medium: true
+                            low: true
+                            noRisk: true
+                        devicePlatforms:
+                          isConfigured: true
+                          inclusions: true
+                          allDevices: true
+                          selectedDevicePlatforms:
+                            - string
+                        locations:
+                          isConfigured: true
+                          inclusions: true
+                          anyLocation: true
+                          selectedLocations:
+                            - string
+                        clientApps:
+                          isConfigured: true
+                          allowMobileApps: true
+                          allowBrowserApps: true
+                          allowDesktopApps: true
+                          allowServerApps: true
+                          otherClients: true
+                        deviceState:
+                          isConfigured: true
+                          inclusions: true
+                          allStates: true
+                          adJoined: true
+                      accessControls:
+                        isAllowed: true
+                        domainName: string
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+              examples:
+                example-1:
+                  value:
+                    correlationId: string
+                    errorMessage: string
+                    errorNumber: string
+                    applicationId: string
       operationId: get-Policy
       description: GET policy retrieves conditional access policy on the basis of a policyId and the current logged in client
       parameters:
@@ -353,6 +431,18 @@ components:
           medium: true
           low: true
           noRisk: true
+    ErrorModel:
+      title: ErrorModel
+      type: object
+      properties:
+        correlationId:
+          type: string
+        errorMessage:
+          type: string
+        errorNumber:
+          type: string
+        applicationId:
+          type: string
   securitySchemes:
     API Key - 1:
       name: API Key
