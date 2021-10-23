@@ -319,6 +319,15 @@ components:
                     type: boolean
               deviceState:
                 type: object
+                properties:
+                  isConfigured:
+                    type: boolean
+                  inclusions:
+                    type: boolean
+                  allStates:
+                    type: boolean
+                  adJoined:
+                    type: boolean
     RiskMatrix:
       title: RiskMatrix
       type: object
