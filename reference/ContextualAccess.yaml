@@ -271,6 +271,11 @@ components:
             properties:
               signInRisk:
                 type: object
+                properties:
+                  isConfigured:
+                    type: boolean
+                  risk:
+                    $ref: '#/components/schemas/RiskMatrix'
               devicePlatforms:
                 type: object
               locations:
@@ -279,6 +284,24 @@ components:
                 type: object
               deviceState:
                 type: object
+    RiskMatrix:
+      title: RiskMatrix
+      type: object
+      properties:
+        high:
+          type: boolean
+        medium:
+          type: boolean
+        low:
+          type: boolean
+        noRisk:
+          type: boolean
+      description: 'Model specifies the risk matrix associated with other models and conditional access policies  '
+      examples:
+        - high: true
+          medium: true
+          low: true
+          noRisk: true
   securitySchemes:
     API Key - 1:
       name: API Key
